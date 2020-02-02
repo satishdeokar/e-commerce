@@ -7,11 +7,13 @@ import { MatInputModule, MatDatepickerModule } from '@angular/material';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ImportantLinkComponent } from './components/important-link/important-link.component';
+import { DataTableComponent } from './widget/data-table/data-table.component';
 
 const components = [
   HeaderComponent,
   FooterComponent,
-  ImportantLinkComponent
+  ImportantLinkComponent,
+  DataTableComponent
 ]
 
 @NgModule({

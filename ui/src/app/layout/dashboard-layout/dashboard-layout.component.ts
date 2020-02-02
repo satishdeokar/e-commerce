@@ -11,7 +11,9 @@ export class DashboardLayoutComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
   fillerNav = [
-    { name: 'orders', route: '/orders', icon: 'list' },
+    { name: 'Orders', route: '/orders', icon: 'list' },
+    { name: 'Products', route: '/products', icon: 'list' },
+    { name: 'Inventory', route: '/inventory', icon: 'list' },
   ];
 
   fillerContent = Array.from({ length: 10 }, () =>

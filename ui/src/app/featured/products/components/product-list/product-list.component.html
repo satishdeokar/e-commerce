@@ -1,0 +1,10 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <h4 style="font-family:lato;">Orders</h4>
+        </li>
+    </ol>
+</nav>
+<mat-spinner *ngIf="!isLoading"></mat-spinner>
+<app-data-table *ngIf="isLoading" (eventToEmit)="getEvent($event)">
+</app-data-table>
