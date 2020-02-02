@@ -94,6 +94,7 @@ export class HttpService {
   get(url: string, params?: object) {
     
     const apiUrl = `${this.baseUrl}${url}${this.generateQueryString(params)}`;
+    console.log(apiUrl,'apiUrl')
     return this.http.get(apiUrl);
   }
   /**
