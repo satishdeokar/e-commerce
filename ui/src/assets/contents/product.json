@@ -1,0 +1,80 @@
+{
+    "headers": [
+      "id",
+      "productName",
+      "quantity",
+      "action"
+    ],
+    "elementsData": [
+      {
+        "id": 1,
+        "productName": "A",
+        "quantity":1,
+        "action": [
+          "click",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "id": 2,
+        "productName": "B",
+        "quantity":1,
+        "action": [
+          "click",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "id": 3,
+        "productName": "C",
+        "quantity":1,
+        "action": [
+          "click",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "id": 4,
+        "productName": "D",
+        "quantity":1,
+        "action": [
+          "click",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "id": 5,
+        "productName": "E",
+        "quantity":1,
+        "action": [
+          "click",
+          "edit",
+          "delete"
+        ]
+      },
+      {
+        "id": 6,
+        "productName": "F",
+        "quantity":1,
+        "action": [
+          "click",
+          "edit",
+          "delete"
+        ]
+      }
+    ],
+    "pagination": {
+      "total": 20,
+      "recordPerPage": 5,
+      "pageSizeOptions": [
+        2,
+        5,
+        10,
+        50
+      ]
+    }
+  }
