@@ -14,6 +14,7 @@ export class DashboardLayoutComponent implements OnInit, OnDestroy {
     { name: 'Orders', route: '/orders', icon: 'list' },
     { name: 'Products', route: '/products', icon: 'list' },
     { name: 'Inventory', route: '/inventory', icon: 'list' },
+    {name:"Custom Paginator",route:'/custom-paginator',icon:'list'}
   ];
 
   fillerContent = Array.from({ length: 10 }, () =>

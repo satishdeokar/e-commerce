@@ -1,0 +1,117 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <h4 style="font-family:lato;">Orders :<span>custom-paginator!</span></h4>
+            
+        </li>
+    </ol>
+</nav>
+<mat-spinner *ngIf="isLodding"></mat-spinner>
+<div class="row">
+    <div class="col-md-8">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+        </mat-form-field>
+    </div>
+    <div class="col-md-4 add-panel-button text-right">
+        <mat-form-field>
+            <mat-label>filter</mat-label>
+            <mat-select [(ngModel)]="filterSelected" (selectionChange)="onFilterChange($event)">
+                <mat-option *ngFor="let filter of filters" [value]="filter.value">
+                    {{filter.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- orderId Column -->
+                <ng-container matColumnDef="orderId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> order Id </th>
+                    <td mat-cell *matCellDef="let element"> {{element.orderId}} </td>
+                </ng-container>
+
+                <!-- productName Column -->
+                <ng-container matColumnDef="productName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+                </ng-container>
+
+                <!-- quantity Column -->
+                <ng-container matColumnDef="quantity">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+                    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+                </ng-container>
+
+                <!-- amount Column -->
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+                    <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+                </ng-container>
+
+                <!-- deliveryAddress Column -->
+                <ng-container matColumnDef="deliveryAddress">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Delivery Address </th>
+                    <td mat-cell *matCellDef="let element"> {{element.deliveryAddress}} </td>
+                </ng-container>
+                <!-- deliveryAgentName Column -->
+                <ng-container matColumnDef="deliveryAgentName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Delivery Agent Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.deliveryAgentName}} </td>
+                </ng-container>
+                <!-- orderDate Column -->
+                <ng-container matColumnDef="orderDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.orderDate |date}} </td>
+                </ng-container>
+
+                <!-- expectedDateofDelivery Column -->
+                <ng-container matColumnDef="expectedDateofDelivery">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Expected Date of Delivery </th>
+                    <td mat-cell *matCellDef="let element"> {{element.expectedDateofDelivery |date}} </td>
+                </ng-container>
+
+                <!-- dateofDelivery Column -->
+                <ng-container matColumnDef="dateofDelivery">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Date of Delivery </th>
+                    <td mat-cell *matCellDef="let element">
+                        <span *ngIf="element.isComplete else elseBlock">{{element.dateofDelivery |date}}</span>
+                        <ng-template #elseBlock>{{element.dateofDelivery}}</ng-template>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <nav aria-label="Page navigation example">
+                <ul *ngIf="pager.pages && pager.pages.length" class="pagination" style="float: right;">
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a class="page-link" (click)="setPage(1)">First</a>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+                    </li>
+                    <li  class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                        <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</div>
+ 

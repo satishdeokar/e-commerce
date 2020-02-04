@@ -25,7 +25,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./featured/orders/orders.module').then(m => m.OrdersModule)
+        loadChildren: () => import('./featured/custom-paginator/custom-paginator.module').then(m=>m.CustomePaginatorModule)
+      },
+      {
+        path:'custom-paginator',
+        loadChildren:()=>import('./featured/custom-paginator/custom-paginator.module').then(m=>m.CustomePaginatorModule)
       },
       {
         path: 'orders',
